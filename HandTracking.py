@@ -9,7 +9,6 @@ mpDraw=mp.solutions.drawing_utils
 #time for calculating framerate
 pTime=0
 cTime=0
-
 while True:
     success,img=cap.read()
     imgRGB=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
@@ -25,9 +24,9 @@ while True:
                 #if id==0:
                 cv2.circle(img,(cx,cy),10,(255,0,200),cv2.FILLED)
             mpDraw.draw_landmarks(img,handLms,mpHands.HAND_CONNECTIONS)#for connecting landmarks
-
+    #to find framerate
     cTime=time.time()
-    fps=1/(cTime-pTime)#to find framerate
+    fps=1/(cTime-pTime)
     pTime=cTime
     #displaying fps on screen
     cv2.putText(img,str(int(fps)),(10,70),cv2.FONT_HERSHEY_PLAIN,3,(255,0,100),3)
